@@ -57,7 +57,7 @@ class CCDIScraper:
         delay = random.uniform(RANDOM_DELAY_MIN, RANDOM_DELAY_MAX)
         await asyncio.sleep(delay)
 
-    async def scrape_category(self, category_url):
+    async def scrape_category(self, category_url, storage=None):
         """
         Scrape a category listing page for detail URLs.
         Yields detail URLs.
@@ -67,77 +67,93 @@ class CCDIScraper:
         
         # 1. Scrape first page
         try:
-            await self.page.goto(category_url, timeout=TIMEOUT)
-            await self.page.wait_for_load_state("networkidle")
+            # Create a localized page for this task if not reusing the main one
+            # For concurrency, we should ideally have a page per task. 
+            # But the class design currently has self.page.
+            # We will refactor in main.py to separate instances or handle locking.
+            # For now, let's assume self.page is safe or we use a lock.
+            # actually better: create a new page for this category transaction if possible.
+            # BUT efficient way: use self.page and serialize navigation (bad for concurrency).
+            # BETTER: The Class instance should represent ONE browser context.
+            # We will create Multiple Scraper Instances in main.py or multiple pages.
             
-            # Extract total pages
-            # Look for script content: createPageHTML(22, 0, "index", "html")
-            content = await self.page.content()
-            import re
-            page_match = re.search(r'createPageHTML\((\d+),', content)
-            total_pages = 1
-            if page_match:
-                total_pages = int(page_match.group(1))
-                logger.info(f"Found {total_pages} pages in pagination.")
-            else:
-                logger.info("No pagination info found, assuming single page.")
-
-            # Iterate pages
-            # Page 0 (First page) is already loaded, but let's standardize loop or Just extract now.
+            # Let's assume this instance owns self.page and main.py creates one scraper per task?
+            # No, creating 6 browsers is heavy.
+            # Better: One Browser, Multiple Contexts/Pages.
+            # Let's adjust Scraper to create a new page for this task if needed.
             
-            # Helper to extract links from current page
-            async def extract_links_current_page():
-                await self.page.wait_for_selector("span", timeout=5000) # Generic wait
-                
-                # Check for list
-                # Try specific selectors or generic
-                links = await self.page.evaluate("""() => {
-                    const anchors = Array.from(document.querySelectorAll('a'));
-                    return anchors.map(a => {
-                        return {
-                            href: a.href,
-                            text: a.innerText
-                        }
-                    }).filter(link => 
-                        (link.href.includes('/t20') || link.href.includes('.html')) && 
-                        !link.href.includes('index') &&
-                        link.text.length > 5 // Filter short nav links
-                    ); 
-                }""")
-                return links
-
-            # Process Page 1 (Current)
-            links = await extract_links_current_page()
-            logger.info(f"Page 1: Found {len(links)} links.")
-            for link in links:
-                yield link['href']
+            # NEW APPROACH: scrape_category uses its OWN page.
+            page = await self.context.new_page()
             
-            # Process Subsequent Pages (index_1.html, index_2.html... index_{total_pages-1}.html)
-            # Note: createPageHTML(22, ...) usually means 22 pages. 
-            # Page indices usually 0 to 21.
-            # Page 1 is index.html (or index_0.html sometimes? No, usually index.html).
-            # Page 2 is index_1.html.
-            
-            base_url = category_url.rstrip("/")
-            
-            for i in range(1, total_pages):
-                page_url = f"{base_url}/index_{i}.html"
-                logger.info(f"Scraping page {i+1}/{total_pages}: {page_url}")
-                
+            try:
+                await page.goto(category_url, timeout=TIMEOUT)
                 try:
-                    await self.page.goto(page_url, timeout=TIMEOUT)
-                    # await self.page.wait_for_load_state("networkidle") 
-                    # Networkidle can be slow/flaky on static sites, wait for domcontentloaded
-                    await self.random_sleep()
+                   await page.wait_for_load_state("networkidle", timeout=10000)
+                except:
+                   pass # Networkidle might timeout
+                
+                # Extract total pages
+                content = await page.content()
+                import re
+                page_match = re.search(r'createPageHTML\((\d+),', content)
+                total_pages = 1
+                if page_match:
+                    total_pages = int(page_match.group(1))
+                    logger.info(f"Found {total_pages} pages in pagination for {category_url}.")
+                else:
+                    logger.info(f"No pagination info found for {category_url}, assuming single page.")
+
+                # Helper to extract links
+                async def extract_links(p):
+                    # await p.wait_for_selector("span", timeout=5000) # Generic wait
+                    # Check for list
+                    links = await p.evaluate("""() => {
+                        const anchors = Array.from(document.querySelectorAll('a'));
+                        return anchors.map(a => {
+                            return {
+                                href: a.href,
+                                text: a.innerText
+                            }
+                        }).filter(link => 
+                            (link.href.includes('/t20') || link.href.includes('.html')) && 
+                            !link.href.includes('index') &&
+                            link.text.length > 5 
+                        ); 
+                    }""")
+                    return links
+
+                # Process Page 1
+                links = await extract_links(page)
+                # logger.info(f"Page 1: Found {len(links)} links.")
+                for link in links:
+                    if storage and storage.is_scraped(link['href']):
+                        continue
+                    yield link['href']
+                
+                # Close page 1's content relation? No, keep using this page for subsequent requests if simple
+                
+                base_url = category_url.rstrip("/")
+                
+                for i in range(1, total_pages):
+                    page_url = f"{base_url}/index_{i}.html"
+                    # logger.info(f"Scraping page {i+1}/{total_pages}: {page_url}")
                     
-                    links = await extract_links_current_page()
-                    logger.info(f"Page {i+1}: Found {len(links)} links.")
-                    for link in links:
-                        yield link['href']
+                    try:
+                        await page.goto(page_url, timeout=TIMEOUT)
+                        # await self.random_sleep() # Removing long sleep for speed
+                        await asyncio.sleep(0.5) 
                         
-                except Exception as e:
-                    logger.error(f"Error scraping page {i+1} ({page_url}): {e}")
-                    continue
+                        links = await extract_links(page)
+                        for link in links:
+                            if storage and storage.is_scraped(link['href']):
+                                continue
+                            yield link['href']
+                            
+                    except Exception as e:
+                        logger.error(f"Error scraping page {i+1} ({page_url}): {e}")
+                        continue
+            finally:
+                await page.close()
                     
         except Exception as e:
             logger.error(f"Error scraping category {category_url}: {e}")
@@ -145,18 +161,20 @@ class CCDIScraper:
     async def get_page_content(self, url):
         """
         Navigate to a detail page and return its HTML content.
+        Uses a temporary page to facilitate concurrency.
         """
-        logger.info(f"Navigating to detail page: {url}")
+        # logger.info(f"Navigating to detail page: {url}")
+        page = await self.context.new_page()
         try:
-            await self.page.goto(url, timeout=TIMEOUT)
-            # await self.random_sleep() # Random sleep before or after? After loading.
+            await page.goto(url, timeout=TIMEOUT)
+            # Simulate minimal human interaction
+            # await page.mouse.move(random.randint(100, 500), random.randint(100, 500))
             
-            # Simulate some human interaction
-            await self.page.mouse.move(random.randint(100, 500), random.randint(100, 500))
-            
-            content = await self.page.content()
-            await self.random_sleep() # Sleep after reading
+            content = await page.content()
+            # await self.random_sleep() 
             return content
         except Exception as e:
             logger.error(f"Error getting content for {url}: {e}")
             return None
+        finally:
+            await page.close()

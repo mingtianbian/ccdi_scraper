@@ -1,6 +1,6 @@
 from rich.console import Console
 from rich.panel import Panel
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
+from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn
 from rich.table import Table
 from rich import box
 import time
@@ -19,8 +19,6 @@ def show_welcome():
 def show_status_table(checks):
     """
     Show a table of health checks.
-    checks: list of (Name, Status, Msg) tuples.
-    Status: "ok" (green), "warn" (yellow), "error" (red)
     """
     table = Table(show_header=True, header_style="bold magenta", box=box.SIMPLE)
     table.add_column("Component")
@@ -45,7 +43,9 @@ def create_progress():
         TextColumn("[progress.description]{task.description}"),
         BarColumn(),
         TaskProgressColumn(),
-        console=console
+        TimeRemainingColumn(),
+        console=console,
+        expand=True
     )
 
 def log_message(full_text, level="info"):
