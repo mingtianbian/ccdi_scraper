@@ -40,6 +40,12 @@ class CCDIScraper:
         """)
         
         self.page = await self.context.new_page()
+        
+        # GLOBAL CONTROL
+        self.running_event = asyncio.Event()
+        self.running_event.set() # Initially running
+        self.handling_lock = asyncio.Lock()
+        
         logger.info("Browser initialized successfully.")
 
     async def stops(self):
@@ -81,47 +87,50 @@ class CCDIScraper:
                 pass
 
             if is_blocked:
-                logger.warning(f"Risk control detected at {url} | Title: {title}. Pausing...")
+                # 1. STOP THE WORLD
+                self.running_event.clear()
                 
-                print(f"\n[!] WARN: Risk control Detected!")
-                print(f"[!] URL: {url}")
-                print(f"[!] Title: {title}")
-                print(f"[!] The scraper is PAUSED. Please check the browser window manually.")
-                print(f"[!] Resolve the captcha, or wait for IP ban to lift.")
+                logger.warning(f"Risk control detected at {url}. Entering handling lock...")
                 
-                while True:
-                    # Check if resolved
-                    try:
-                        current_url = page.url
-                        current_title = await page.title()
+                # 2. Serialize handling (Only one tab needs to scream "Fix me", others wait)
+                async with self.handling_lock:
+                    print(f"\n[!] WARN: Risk control (Thread {id(asyncio.current_task())})")
+                    
+                    while True:
+                         # Double check status inside lock (maybe previous thread fixed it?)
+                         try:
+                            # We must reload THIS page to verify if it's clear
+                            # If checking logic is simple check:
+                            curr_url = page.url
+                            curr_title = await page.title()
+                            
+                            still_blocked = False
+                            if "/error/error.html" in curr_url or "security_verify" in curr_url:
+                                still_blocked = True
+                            elif "系统维护" in curr_title or "403 Forbidden" in curr_title or "Security Verify" in curr_title:
+                                still_blocked = True
+                                
+                            if not still_blocked:
+                                print(f"[!] Block resolved for this thread. Resuming...")
+                                # Important: Set event so others can proceed
+                                self.running_event.set()
+                                break
+                         except Exception as e:
+                             logger.error(f"Error checking block: {e}")
                         
-                        # Conditions to continue
-                        still_blocked = False
-                        if "/error/error.html" in current_url or "security_verify" in current_url:
-                            still_blocked = True
-                        elif "系统维护" in current_title or "403 Forbidden" in current_title or "Security Verify" in current_title:
-                            still_blocked = True
-                            
-                        if not still_blocked:
-                            print(f"[!] Block resolved (URL: {current_url}). Resuming...")
-                            break
-                            
-                    except Exception as e:
-                        logger.error(f"Error checking block status: {e}")
-                    
-                    print(f"[!] Paused... Retrying in 30 seconds...")
-                    await asyncio.sleep(30)
-                    
-                    try:
-                        logger.info("Retrying page reload...")
-                        await page.reload(timeout=TIMEOUT)
-                        # Wait for load
-                        try:
-                            await page.wait_for_load_state("domcontentloaded", timeout=10000)
-                        except:
-                            pass
-                    except Exception as e:
-                        logger.error(f"Reload failed: {e}")
+                         print(f"[!] PAUSED (Global). Please manually verify in browser.")
+                         print(f"[!] Waiting 30s to retry...")
+                         await asyncio.sleep(30)
+                         
+                         try:
+                             print("[!] Retrying reload...")
+                             await page.reload(timeout=TIMEOUT)
+                             try:
+                                await page.wait_for_load_state("domcontentloaded", timeout=10000)
+                             except:
+                                pass
+                         except Exception as e:
+                             pass
 
         except Exception as e:
             logger.error(f"Error in _handle_block: {e}")
@@ -135,111 +144,98 @@ class CCDIScraper:
         """
         Scrape a category listing page for detail URLs.
         Yields detail URLs.
-        Handles pagination via createPageHTML(count, ...) logic.
         """
+        # WAIT FOR RUNNING STATUS
+        await self.running_event.wait()
+        
         logger.info(f"Scraping category list: {category_url}")
         
-        # 1. Scrape first page
+        # NEW APPROACH: scrape_category uses its OWN page.
+        page = await self.context.new_page()
+        
         try:
-            # Create a localized page for this task if not reusing the main one
-            # For concurrency, we should ideally have a page per task. 
-            # But the class design currently has self.page.
-            # We will refactor in main.py to separate instances or handle locking.
-            # For now, let's assume self.page is safe or we use a lock.
-            # actually better: create a new page for this category transaction if possible.
-            # BUT efficient way: use self.page and serialize navigation (bad for concurrency).
-            # BETTER: The Class instance should represent ONE browser context.
-            # We will create Multiple Scraper Instances in main.py or multiple pages.
-            
-            # Let's assume this instance owns self.page and main.py creates one scraper per task?
-            # No, creating 6 browsers is heavy.
-            # Better: One Browser, Multiple Contexts/Pages.
-            # Let's adjust Scraper to create a new page for this task if needed.
-            
-            # NEW APPROACH: scrape_category uses its OWN page.
-            page = await self.context.new_page()
-            
+            await self.running_event.wait()
             try:
                 await page.goto(category_url, timeout=TIMEOUT)
                 await self._handle_block(page)
+            except Exception as e:
+                logger.error(f"Goto failed: {e}")
 
+            try:
+               await page.wait_for_load_state("networkidle", timeout=10000)
+            except:
+               pass 
+            
+            # Extract total pages
+            content = await page.content()
+            import re
+            page_match = re.search(r'createPageHTML\((\d+),', content)
+            total_pages = 1
+            if page_match:
+                total_pages = int(page_match.group(1))
+                logger.info(f"Found {total_pages} pages in pagination for {category_url}.")
+            else:
+                logger.info(f"No pagination info found for {category_url}, assuming single page.")
+
+            # Helper to extract links
+            async def extract_links(p):
+                links = await p.evaluate("""() => {
+                    const anchors = Array.from(document.querySelectorAll('a'));
+                    return anchors.map(a => {
+                        return {
+                            href: a.href,
+                            text: a.innerText
+                        }
+                    }).filter(link => 
+                        (link.href.includes('/t20') || link.href.includes('.html')) && 
+                        !link.href.includes('index') &&
+                        link.text.length > 5 
+                    ); 
+                }""")
+                return links
+
+            # Process Page 1
+            links = await extract_links(page)
+            # logger.info(f"Page 1: Found {len(links)} links.")
+            for link in links:
+                if storage and storage.is_scraped(link['href']):
+                    continue
+                yield link['href']
+            
+            base_url = category_url.rstrip("/")
+            
+            for i in range(1, total_pages):
+                await self.running_event.wait() # Check global pause
+                
+                page_url = f"{base_url}/index_{i}.html"
+                # logger.info(f"Scraping page {i+1}/{total_pages}: {page_url}")
+                
                 try:
-                   await page.wait_for_load_state("networkidle", timeout=10000)
-                except:
-                   pass # Networkidle might timeout
-                
-                # Extract total pages
-                content = await page.content()
-                import re
-                page_match = re.search(r'createPageHTML\((\d+),', content)
-                total_pages = 1
-                if page_match:
-                    total_pages = int(page_match.group(1))
-                    logger.info(f"Found {total_pages} pages in pagination for {category_url}.")
-                else:
-                    logger.info(f"No pagination info found for {category_url}, assuming single page.")
-
-                # Helper to extract links
-                async def extract_links(p):
-                    # await p.wait_for_selector("span", timeout=5000) # Generic wait
-                    # Check for list
-                    links = await p.evaluate("""() => {
-                        const anchors = Array.from(document.querySelectorAll('a'));
-                        return anchors.map(a => {
-                            return {
-                                href: a.href,
-                                text: a.innerText
-                            }
-                        }).filter(link => 
-                            (link.href.includes('/t20') || link.href.includes('.html')) && 
-                            !link.href.includes('index') &&
-                            link.text.length > 5 
-                        ); 
-                    }""")
-                    return links
-
-                # Process Page 1
-                links = await extract_links(page)
-                # logger.info(f"Page 1: Found {len(links)} links.")
-                for link in links:
-                    if storage and storage.is_scraped(link['href']):
-                        continue
-                    yield link['href']
-                
-                # Close page 1's content relation? No, keep using this page for subsequent requests if simple
-                
-                base_url = category_url.rstrip("/")
-                
-                for i in range(1, total_pages):
-                    page_url = f"{base_url}/index_{i}.html"
-                    # logger.info(f"Scraping page {i+1}/{total_pages}: {page_url}")
+                    await page.goto(page_url, timeout=TIMEOUT)
+                    await self._handle_block(page)
+                    # await self.random_sleep() # Removing long sleep for speed
+                    await asyncio.sleep(0.5) 
                     
-                    try:
-                        await page.goto(page_url, timeout=TIMEOUT)
-                        await self._handle_block(page)
-                        # await self.random_sleep() # Removing long sleep for speed
-                        await asyncio.sleep(0.5) 
+                    links = await extract_links(page)
+                    for link in links:
+                        if storage and storage.is_scraped(link['href']):
+                            continue
+                        yield link['href']
                         
-                        links = await extract_links(page)
-                        for link in links:
-                            if storage and storage.is_scraped(link['href']):
-                                continue
-                            yield link['href']
-                            
-                    except Exception as e:
-                        logger.error(f"Error scraping page {i+1} ({page_url}): {e}")
-                        continue
-            finally:
-                await page.close()
-                    
-        except Exception as e:
-            logger.error(f"Error scraping category {category_url}: {e}")
+                except Exception as e:
+                    logger.error(f"Error scraping page {i+1} ({page_url}): {e}")
+                    continue
+        finally:
+            await page.close()
 
     async def get_page_content(self, url):
         """
         Navigate to a detail page and return its HTML content.
         Uses a temporary page to facilitate concurrency.
         """
+        # WAIT FOR RUNNING STATUS
+        await self.running_event.wait()
+        
         # logger.info(f"Navigating to detail page: {url}")
         page = await self.context.new_page()
         try:

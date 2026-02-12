@@ -21,8 +21,8 @@ CATEGORIES = {
 # Scraper Settings
 HEADLESS = False  # Keep browser visible for manual intervention
 TIMEOUT = 30000   # 30 seconds
-RANDOM_DELAY_MIN = 2
-RANDOM_DELAY_MAX = 5
+RANDOM_DELAY_MIN = 3
+RANDOM_DELAY_MAX = 6
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -32,3 +32,7 @@ USER_AGENTS = [
 # Output
 OUTPUT_DIR = "data"
 OUTPUT_FILENAME_FORMAT = "ccdi_data_{timestamp}.xlsx"
+
+# Advanced Settings
+EXPORT_INTERVAL = 300  # Export every 5 minutes (seconds)
+COMPLETION_WAIT_TIME = 60 # Wait 60 seconds after completion before closing
