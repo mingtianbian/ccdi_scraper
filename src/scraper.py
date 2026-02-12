@@ -61,39 +61,83 @@ class CCDIScraper:
         """
         Scrape a category listing page for detail URLs.
         Yields detail URLs.
+        Handles pagination via createPageHTML(count, ...) logic.
         """
         logger.info(f"Scraping category list: {category_url}")
+        
+        # 1. Scrape first page
         try:
             await self.page.goto(category_url, timeout=TIMEOUT)
             await self.page.wait_for_load_state("networkidle")
             
-            # Extract links
-            # Selectors specific to CCDI listing pages
-            # Usually strict list items are in 'ul.list_news_dl li a' or similar
-            # We will grab all relevant links
+            # Extract total pages
+            # Look for script content: createPageHTML(22, 0, "index", "html")
+            content = await self.page.content()
+            import re
+            page_match = re.search(r'createPageHTML\((\d+),', content)
+            total_pages = 1
+            if page_match:
+                total_pages = int(page_match.group(1))
+                logger.info(f"Found {total_pages} pages in pagination.")
+            else:
+                logger.info("No pagination info found, assuming single page.")
+
+            # Iterate pages
+            # Page 0 (First page) is already loaded, but let's standardize loop or Just extract now.
             
-            # Wait for the list to appear
-            await self.page.wait_for_selector("ul", timeout=10000)
-            
-            links = await self.page.evaluate("""() => {
-                const anchors = Array.from(document.querySelectorAll('a'));
-                return anchors.map(a => {
-                    return {
-                        href: a.href,
-                        text: a.innerText
-                    }
-                }).filter(link => link.href.includes('/t20') || link.href.includes('.html')); 
-                // CCDI articles often have date-based IDs like t2023... or .html
-            }""")
-            
-            logger.info(f"Found {len(links)} potential links on page.")
-            
-            unique_links = set()
+            # Helper to extract links from current page
+            async def extract_links_current_page():
+                await self.page.wait_for_selector("span", timeout=5000) # Generic wait
+                
+                # Check for list
+                # Try specific selectors or generic
+                links = await self.page.evaluate("""() => {
+                    const anchors = Array.from(document.querySelectorAll('a'));
+                    return anchors.map(a => {
+                        return {
+                            href: a.href,
+                            text: a.innerText
+                        }
+                    }).filter(link => 
+                        (link.href.includes('/t20') || link.href.includes('.html')) && 
+                        !link.href.includes('index') &&
+                        link.text.length > 5 // Filter short nav links
+                    ); 
+                }""")
+                return links
+
+            # Process Page 1 (Current)
+            links = await extract_links_current_page()
+            logger.info(f"Page 1: Found {len(links)} links.")
             for link in links:
-                url = link['href']
-                if url not in unique_links and "ccdi.gov.cn" in url:
-                    unique_links.add(url)
-                    yield url
+                yield link['href']
+            
+            # Process Subsequent Pages (index_1.html, index_2.html... index_{total_pages-1}.html)
+            # Note: createPageHTML(22, ...) usually means 22 pages. 
+            # Page indices usually 0 to 21.
+            # Page 1 is index.html (or index_0.html sometimes? No, usually index.html).
+            # Page 2 is index_1.html.
+            
+            base_url = category_url.rstrip("/")
+            
+            for i in range(1, total_pages):
+                page_url = f"{base_url}/index_{i}.html"
+                logger.info(f"Scraping page {i+1}/{total_pages}: {page_url}")
+                
+                try:
+                    await self.page.goto(page_url, timeout=TIMEOUT)
+                    # await self.page.wait_for_load_state("networkidle") 
+                    # Networkidle can be slow/flaky on static sites, wait for domcontentloaded
+                    await self.random_sleep()
+                    
+                    links = await extract_links_current_page()
+                    logger.info(f"Page {i+1}: Found {len(links)} links.")
+                    for link in links:
+                        yield link['href']
+                        
+                except Exception as e:
+                    logger.error(f"Error scraping page {i+1} ({page_url}): {e}")
+                    continue
                     
         except Exception as e:
             logger.error(f"Error scraping category {category_url}: {e}")
