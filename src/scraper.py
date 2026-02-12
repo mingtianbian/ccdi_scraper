@@ -52,6 +52,35 @@ class CCDIScraper:
             await self.playwright.stop()
         logger.info("Browser closed.")
 
+    async def _handle_block(self, page):
+        """
+        Check if redirected to error page. If so, pause until resolved.
+        """
+        # Check standard error URL or generic error indicators
+        if "/error/error.html" in page.url or "security_verify" in page.url:
+            logger.warning(f"Risk control detected at {page.url}. Pausing...")
+            
+            # Print explicit message to console
+            print(f"\n[!] WARN: Risk control Detected! Redirected to: {page.url}")
+            print(f"[!] The scraper is PAUSED. Please check the browser window.")
+            print(f"[!] Resolve the captcha or change IP, then wait for auto-retry.")
+            
+            while "/error/error.html" in page.url or "security_verify" in page.url:
+                print(f"[!] Paused... Retrying in 30 seconds...")
+                await asyncio.sleep(30)
+                try:
+                    logger.info("Retrying page reload...")
+                    await page.reload(timeout=TIMEOUT)
+                    try:
+                        await page.wait_for_load_state("domcontentloaded", timeout=10000)
+                    except:
+                        pass
+                except Exception as e:
+                    logger.error(f"Reload failed: {e}")
+            
+            print(f"[!] Block resolved. Resuming...")
+            logger.info("Block resolved. Resuming...")
+
     async def random_sleep(self):
         """Sleep for a random interval to simulate human behavior."""
         delay = random.uniform(RANDOM_DELAY_MIN, RANDOM_DELAY_MAX)
@@ -87,6 +116,8 @@ class CCDIScraper:
             
             try:
                 await page.goto(category_url, timeout=TIMEOUT)
+                await self._handle_block(page)
+
                 try:
                    await page.wait_for_load_state("networkidle", timeout=10000)
                 except:
@@ -140,6 +171,7 @@ class CCDIScraper:
                     
                     try:
                         await page.goto(page_url, timeout=TIMEOUT)
+                        await self._handle_block(page)
                         # await self.random_sleep() # Removing long sleep for speed
                         await asyncio.sleep(0.5) 
                         
@@ -167,6 +199,8 @@ class CCDIScraper:
         page = await self.context.new_page()
         try:
             await page.goto(url, timeout=TIMEOUT)
+            await self._handle_block(page)
+            
             # Simulate minimal human interaction
             # await page.mouse.move(random.randint(100, 500), random.randint(100, 500))
             

@@ -79,6 +79,9 @@ async def main():
     show_status_table(checks)
     
     storage = Storage()
+    # Clean up any bad data from previous runs (e.g. block pages)
+    storage.clean_bad_data()
+    
     scraper = CCDIScraper()
     await scraper.start()
     

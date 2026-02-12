@@ -87,3 +87,44 @@ class Storage:
             logger.info(f"Exported {len(df)} records to {filepath}")
         else:
             logger.info("Database empty, nothing to export.")
+
+    def clean_bad_data(self):
+        """
+        Remove records that look like error pages or failed parses.
+        This forces them to be re-scraped next time.
+        """
+        conn = sqlite3.connect(self.db_path)
+        c = conn.cursor()
+        
+        # Define block keywords
+        # 1. "Title Not Found" (Parser failed)
+        # 2. "Security Verify" (Risk control page title)
+        # 3. "403 Forbidden"
+        # 4. "系统维护" (System maintenance)
+        
+        bad_titles = [
+            "Title Not Found",
+            "Security Verify",
+            "403 Forbidden", 
+            "Unknown",
+            "系统维护"
+        ]
+        
+        deleted_count = 0
+        try:
+            for title in bad_titles:
+                c.execute("DELETE FROM articles WHERE title = ? OR title LIKE ?", (title, f"%{title}%"))
+                deleted_count += c.rowcount
+            
+            # Also check for empty content if that indicates a block
+            c.execute("DELETE FROM articles WHERE content IS NULL OR content = ''")
+            deleted_count += c.rowcount
+            
+            conn.commit()
+            if deleted_count > 0:
+                logger.info(f"Cleaned {deleted_count} invalid records from database.")
+                print(f"[!] Database Cleaned: Removed {deleted_count} invalid records to be re-scraped.")
+        except Exception as e:
+            logger.error(f"Error cleaning DB: {e}")
+        finally:
+            conn.close()
