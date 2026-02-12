@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
+import pandas as pd
 import logging
 
 logger = logging.getLogger(__name__)

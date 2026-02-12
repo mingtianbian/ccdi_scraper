@@ -1,0 +1,398 @@
+2026-02-12 21:14:57,928 - INFO - Browser initialized successfully.
+2026-02-12 21:14:57,930 - INFO - Scraping category list: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/
+2026-02-12 21:14:59,054 - INFO - Found 33 potential links on page.
+2026-02-12 21:14:59,055 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/client/index.html
+2026-02-12 21:15:01,581 - WARNING - Content selector failed for http://www.ccdi.gov.cn/client/index.html, trying fallback.
+2026-02-12 21:15:01,581 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html
+2026-02-12 21:15:05,043 - WARNING - Content selector failed for https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html, trying fallback.
+2026-02-12 21:15:05,043 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/specialn/jdbg3/index.html
+2026-02-12 21:15:05,212 - ERROR - Error getting content for http://www.ccdi.gov.cn/specialn/jdbg3/index.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2026-02-12 21:15:05,212 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202602/t20260210_474784.html
+2026-02-12 21:15:09,996 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202602/t20260210_474784.html, trying fallback.
+2026-02-12 21:15:09,996 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202602/t20260207_474406.html
+2026-02-12 21:15:12,709 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202602/t20260207_474406.html, trying fallback.
+2026-02-12 21:15:12,709 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202602/t20260205_473990.html
+2026-02-12 21:15:16,143 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202602/t20260205_473990.html, trying fallback.
+2026-02-12 21:15:16,143 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202602/t20260203_473509.html
+2026-02-12 21:15:18,817 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202602/t20260203_473509.html, trying fallback.
+2026-02-12 21:15:18,817 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260131_473013.html
+2026-02-12 21:15:21,351 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260131_473013.html, trying fallback.
+2026-02-12 21:15:21,351 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260129_472683.html
+2026-02-12 21:15:24,625 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260129_472683.html, trying fallback.
+2026-02-12 21:15:24,625 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260127_472100.html
+2026-02-12 21:15:27,349 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260127_472100.html, trying fallback.
+2026-02-12 21:15:27,349 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202601/t20260124_471646.html
+2026-02-12 21:15:30,849 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202601/t20260124_471646.html, trying fallback.
+2026-02-12 21:15:30,849 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260122_471161.html
+2026-02-12 21:15:35,728 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260122_471161.html, trying fallback.
+2026-02-12 21:15:35,729 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260119_470756.html
+2026-02-12 21:15:39,265 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260119_470756.html, trying fallback.
+2026-02-12 21:15:39,265 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260108_468744.html
+2026-02-12 21:15:42,153 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260108_468744.html, trying fallback.
+2026-02-12 21:15:42,154 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260105_467970.html
+2026-02-12 21:15:46,127 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260105_467970.html, trying fallback.
+2026-02-12 21:15:46,128 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251230_467074.html
+2026-02-12 21:15:49,547 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251230_467074.html, trying fallback.
+2026-02-12 21:15:49,547 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202512/t20251227_466657.html
+2026-02-12 21:15:53,763 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202512/t20251227_466657.html, trying fallback.
+2026-02-12 21:15:53,763 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251224_465995.html
+2026-02-12 21:15:58,550 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251224_465995.html, trying fallback.
+2026-02-12 21:15:58,550 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251221_465506.html
+2026-02-12 21:16:02,092 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251221_465506.html, trying fallback.
+2026-02-12 21:16:02,092 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251218_465071.html
+2026-02-12 21:16:06,801 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251218_465071.html, trying fallback.
+2026-02-12 21:16:06,801 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251215_464494.html
+2026-02-12 21:16:11,383 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251215_464494.html, trying fallback.
+2026-02-12 21:16:11,383 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251212_464206.html
+2026-02-12 21:16:16,121 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251212_464206.html, trying fallback.
+2026-02-12 21:16:16,121 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202512/t20251206_463042.html
+2026-02-12 21:16:21,128 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/202512/t20251206_463042.html, trying fallback.
+2026-02-12 21:16:21,128 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_1.html
+2026-02-12 21:16:23,779 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_1.html, trying fallback.
+2026-02-12 21:16:23,779 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_2.html
+2026-02-12 21:16:28,026 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_2.html, trying fallback.
+2026-02-12 21:16:28,026 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_3.html
+2026-02-12 21:16:30,954 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_3.html, trying fallback.
+2026-02-12 21:16:30,954 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_4.html
+2026-02-12 21:16:33,979 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_4.html, trying fallback.
+2026-02-12 21:16:33,980 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_5.html
+2026-02-12 21:16:36,605 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_5.html, trying fallback.
+2026-02-12 21:16:36,605 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_6.html
+2026-02-12 21:16:40,836 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_6.html, trying fallback.
+2026-02-12 21:16:40,836 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_21.html
+2026-02-12 21:16:44,500 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/zjsc/index_21.html, trying fallback.
+2026-02-12 21:16:44,500 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html
+2026-02-12 21:16:49,420 - WARNING - Content selector failed for https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html, trying fallback.
+2026-02-12 21:16:49,420 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html
+2026-02-12 21:16:53,383 - WARNING - Content selector failed for https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html, trying fallback.
+2026-02-12 21:16:53,384 - INFO - Scraping category list: https://www.ccdi.gov.cn/scdcn/zggb/djcf/
+2026-02-12 21:16:54,055 - INFO - Found 33 potential links on page.
+2026-02-12 21:16:54,056 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/client/index.html
+2026-02-12 21:16:58,839 - WARNING - Content selector failed for http://www.ccdi.gov.cn/client/index.html, trying fallback.
+2026-02-12 21:16:58,839 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html
+2026-02-12 21:17:03,870 - WARNING - Content selector failed for https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html, trying fallback.
+2026-02-12 21:17:03,870 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/specialn/jdbg3/index.html
+2026-02-12 21:17:04,025 - ERROR - Error getting content for http://www.ccdi.gov.cn/specialn/jdbg3/index.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2026-02-12 21:17:04,025 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202602/t20260212_475265.html
+2026-02-12 21:17:09,024 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202602/t20260212_475265.html, trying fallback.
+2026-02-12 21:17:09,024 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474175.html
+2026-02-12 21:17:11,907 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474175.html, trying fallback.
+2026-02-12 21:17:11,907 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474177.html
+2026-02-12 21:17:14,207 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474177.html, trying fallback.
+2026-02-12 21:17:14,207 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474179.html
+2026-02-12 21:17:18,366 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474179.html, trying fallback.
+2026-02-12 21:17:18,366 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474184.html
+2026-02-12 21:17:23,515 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474184.html, trying fallback.
+2026-02-12 21:17:23,516 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260120_470828.html
+2026-02-12 21:17:28,564 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260120_470828.html, trying fallback.
+2026-02-12 21:17:28,564 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202601/t20260107_468417.html
+2026-02-12 21:17:30,971 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202601/t20260107_468417.html, trying fallback.
+2026-02-12 21:17:30,971 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467754.html
+2026-02-12 21:17:33,481 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467754.html, trying fallback.
+2026-02-12 21:17:33,481 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467753.html
+2026-02-12 21:17:36,858 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467753.html, trying fallback.
+2026-02-12 21:17:36,858 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467752.html
+2026-02-12 21:17:41,560 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467752.html, trying fallback.
+2026-02-12 21:17:41,561 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467751.html
+2026-02-12 21:17:44,919 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260104_467751.html, trying fallback.
+2026-02-12 21:17:44,920 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251216_464623.html
+2026-02-12 21:17:47,342 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251216_464623.html, trying fallback.
+2026-02-12 21:17:47,342 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251216_464624.html
+2026-02-12 21:17:50,617 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251216_464624.html, trying fallback.
+2026-02-12 21:17:50,618 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251208_463254.html
+2026-02-12 21:17:54,739 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251208_463254.html, trying fallback.
+2026-02-12 21:17:54,739 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251208_463261.html
+2026-02-12 21:17:59,909 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251208_463261.html, trying fallback.
+2026-02-12 21:17:59,910 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251208_463272.html
+2026-02-12 21:18:02,579 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251208_463272.html, trying fallback.
+2026-02-12 21:18:02,579 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251205_462947.html
+2026-02-12 21:18:06,555 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251205_462947.html, trying fallback.
+2026-02-12 21:18:06,556 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202512/t20251204_462630.html
+2026-02-12 21:18:11,596 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202512/t20251204_462630.html, trying fallback.
+2026-02-12 21:18:11,596 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202511/t20251124_460566.html
+2026-02-12 21:18:16,413 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202511/t20251124_460566.html, trying fallback.
+2026-02-12 21:18:16,414 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/toutiaon/202511/t20251124_460570.html
+2026-02-12 21:18:19,823 - WARNING - Content selector failed for https://www.ccdi.gov.cn/toutiaon/202511/t20251124_460570.html, trying fallback.
+2026-02-12 21:18:19,823 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_1.html
+2026-02-12 21:18:23,490 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_1.html, trying fallback.
+2026-02-12 21:18:23,490 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_2.html
+2026-02-12 21:18:26,784 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_2.html, trying fallback.
+2026-02-12 21:18:26,784 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_3.html
+2026-02-12 21:18:31,097 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_3.html, trying fallback.
+2026-02-12 21:18:31,097 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_4.html
+2026-02-12 21:18:33,515 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_4.html, trying fallback.
+2026-02-12 21:18:33,515 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_5.html
+2026-02-12 21:18:38,130 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_5.html, trying fallback.
+2026-02-12 21:18:38,130 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_6.html
+2026-02-12 21:18:41,468 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_6.html, trying fallback.
+2026-02-12 21:18:41,468 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_21.html
+2026-02-12 21:18:44,659 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zggb/djcf/index_21.html, trying fallback.
+2026-02-12 21:18:44,659 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html
+2026-02-12 21:18:49,475 - WARNING - Content selector failed for https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html, trying fallback.
+2026-02-12 21:18:49,475 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html
+2026-02-12 21:18:53,346 - WARNING - Content selector failed for https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html, trying fallback.
+2026-02-12 21:18:53,346 - INFO - Scraping category list: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/
+2026-02-12 21:18:54,047 - INFO - Found 33 potential links on page.
+2026-02-12 21:18:54,048 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/client/index.html
+2026-02-12 21:18:57,145 - WARNING - Content selector failed for http://www.ccdi.gov.cn/client/index.html, trying fallback.
+2026-02-12 21:18:57,145 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html
+2026-02-12 21:19:01,523 - WARNING - Content selector failed for https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html, trying fallback.
+2026-02-12 21:19:01,523 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/specialn/jdbg3/index.html
+2026-02-12 21:19:01,675 - ERROR - Error getting content for http://www.ccdi.gov.cn/specialn/jdbg3/index.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2026-02-12 21:19:01,675 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260208_474442.html
+2026-02-12 21:19:06,085 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260208_474442.html, trying fallback.
+2026-02-12 21:19:06,086 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/202602/t20260206_474336.html
+2026-02-12 21:19:09,236 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/202602/t20260206_474336.html, trying fallback.
+2026-02-12 21:19:09,236 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474240.html
+2026-02-12 21:19:11,705 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474240.html, trying fallback.
+2026-02-12 21:19:11,705 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260205_473832.html
+2026-02-12 21:19:15,282 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260205_473832.html, trying fallback.
+2026-02-12 21:19:15,282 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473634.html
+2026-02-12 21:19:18,784 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473634.html, trying fallback.
+2026-02-12 21:19:18,784 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473153.html
+2026-02-12 21:19:22,025 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473153.html, trying fallback.
+2026-02-12 21:19:22,025 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473251.html
+2026-02-12 21:19:26,830 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473251.html, trying fallback.
+2026-02-12 21:19:26,830 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473154.html
+2026-02-12 21:19:31,329 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473154.html, trying fallback.
+2026-02-12 21:19:31,329 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260129_472463.html
+2026-02-12 21:19:34,964 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260129_472463.html, trying fallback.
+2026-02-12 21:19:34,964 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260128_472404.html
+2026-02-12 21:19:37,867 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260128_472404.html, trying fallback.
+2026-02-12 21:19:37,867 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260127_472073.html
+2026-02-12 21:19:42,581 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260127_472073.html, trying fallback.
+2026-02-12 21:19:42,582 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260123_471452.html
+2026-02-12 21:19:45,659 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260123_471452.html, trying fallback.
+2026-02-12 21:19:45,659 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260122_471305.html
+2026-02-12 21:19:49,155 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260122_471305.html, trying fallback.
+2026-02-12 21:19:49,155 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260119_470684.html
+2026-02-12 21:19:51,660 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260119_470684.html, trying fallback.
+2026-02-12 21:19:51,660 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260118_470500.html
+2026-02-12 21:19:55,419 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260118_470500.html, trying fallback.
+2026-02-12 21:19:55,419 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260115_470086.html
+2026-02-12 21:20:00,564 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260115_470086.html, trying fallback.
+2026-02-12 21:20:00,564 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260114_469890.html
+2026-02-12 21:20:03,658 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260114_469890.html, trying fallback.
+2026-02-12 21:20:03,658 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/202601/t20260110_469029.html
+2026-02-12 21:20:06,976 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/202601/t20260110_469029.html, trying fallback.
+2026-02-12 21:20:06,976 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468846.html
+2026-02-12 21:20:09,713 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468846.html, trying fallback.
+2026-02-12 21:20:09,713 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260108_468656.html
+2026-02-12 21:20:13,858 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260108_468656.html, trying fallback.
+2026-02-12 21:20:13,858 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_1.html
+2026-02-12 21:20:17,599 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_1.html, trying fallback.
+2026-02-12 21:20:17,599 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_2.html
+2026-02-12 21:20:19,815 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_2.html, trying fallback.
+2026-02-12 21:20:19,816 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_3.html
+2026-02-12 21:20:22,486 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_3.html, trying fallback.
+2026-02-12 21:20:22,486 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_4.html
+2026-02-12 21:20:27,116 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_4.html, trying fallback.
+2026-02-12 21:20:27,116 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_5.html
+2026-02-12 21:20:30,609 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_5.html, trying fallback.
+2026-02-12 21:20:30,609 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_6.html
+2026-02-12 21:20:34,614 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_6.html, trying fallback.
+2026-02-12 21:20:34,615 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_49.html
+2026-02-12 21:20:36,960 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/index_49.html, trying fallback.
+2026-02-12 21:20:36,961 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html
+2026-02-12 21:20:40,981 - WARNING - Content selector failed for https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html, trying fallback.
+2026-02-12 21:20:40,981 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html
+2026-02-12 21:20:44,223 - WARNING - Content selector failed for https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html, trying fallback.
+2026-02-12 21:20:44,224 - INFO - Scraping category list: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/
+2026-02-12 21:20:44,872 - INFO - Found 33 potential links on page.
+2026-02-12 21:20:44,873 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/client/index.html
+2026-02-12 21:20:49,054 - WARNING - Content selector failed for http://www.ccdi.gov.cn/client/index.html, trying fallback.
+2026-02-12 21:20:49,054 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html
+2026-02-12 21:20:52,028 - WARNING - Content selector failed for https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html, trying fallback.
+2026-02-12 21:20:52,028 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/specialn/jdbg3/index.html
+2026-02-12 21:20:55,508 - WARNING - Content selector failed for http://www.ccdi.gov.cn/specialn/jdbg3/index.html, trying fallback.
+2026-02-12 21:20:55,508 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/202602/t20260206_474337.html
+2026-02-12 21:20:59,353 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/202602/t20260206_474337.html, trying fallback.
+2026-02-12 21:20:59,353 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474220.html
+2026-02-12 21:21:02,951 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474220.html, trying fallback.
+2026-02-12 21:21:02,952 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474219.html
+2026-02-12 21:21:07,395 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474219.html, trying fallback.
+2026-02-12 21:21:07,395 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/202602/t20260202_473323.html
+2026-02-12 21:21:11,852 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/202602/t20260202_473323.html, trying fallback.
+2026-02-12 21:21:11,852 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/202602/t20260202_473324.html
+2026-02-12 21:21:16,845 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/202602/t20260202_473324.html, trying fallback.
+2026-02-12 21:21:16,845 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260130_472810.html
+2026-02-12 21:21:20,182 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260130_472810.html, trying fallback.
+2026-02-12 21:21:20,182 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260128_472265.html
+2026-02-12 21:21:24,037 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260128_472265.html, trying fallback.
+2026-02-12 21:21:24,037 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260123_471426.html
+2026-02-12 21:21:29,071 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260123_471426.html, trying fallback.
+2026-02-12 21:21:29,071 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260121_471001.html
+2026-02-12 21:21:34,516 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260121_471001.html, trying fallback.
+2026-02-12 21:21:34,516 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260116_470374.html
+2026-02-12 21:21:40,554 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260116_470374.html, trying fallback.
+2026-02-12 21:21:40,554 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468897.html
+2026-02-12 21:21:46,462 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468897.html, trying fallback.
+2026-02-12 21:21:46,462 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468875.html
+2026-02-12 21:21:50,233 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468875.html, trying fallback.
+2026-02-12 21:21:50,233 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468904.html
+2026-02-12 21:21:56,029 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202601/t20260109_468904.html, trying fallback.
+2026-02-12 21:21:56,029 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251229_466854.html
+2026-02-12 21:22:00,728 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251229_466854.html, trying fallback.
+2026-02-12 21:22:00,729 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251226_466499.html
+2026-02-12 21:22:04,654 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251226_466499.html, trying fallback.
+2026-02-12 21:22:04,654 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251224_465980.html
+2026-02-12 21:22:08,998 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251224_465980.html, trying fallback.
+2026-02-12 21:22:08,998 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202512/t20251223_465821.html
+2026-02-12 21:22:12,343 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202512/t20251223_465821.html, trying fallback.
+2026-02-12 21:22:12,343 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202511/t20251127_461321.html
+2026-02-12 21:22:16,863 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202511/t20251127_461321.html, trying fallback.
+2026-02-12 21:22:16,863 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202511/t20251124_460664.html
+2026-02-12 21:22:19,875 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202511/t20251124_460664.html, trying fallback.
+2026-02-12 21:22:19,875 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202511/t20251123_460491.html
+2026-02-12 21:22:22,286 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202511/t20251123_460491.html, trying fallback.
+2026-02-12 21:22:22,286 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_1.html
+2026-02-12 21:22:26,444 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_1.html, trying fallback.
+2026-02-12 21:22:26,444 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_2.html
+2026-02-12 21:22:31,062 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_2.html, trying fallback.
+2026-02-12 21:22:31,062 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_3.html
+2026-02-12 21:22:33,461 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_3.html, trying fallback.
+2026-02-12 21:22:33,461 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_4.html
+2026-02-12 21:22:38,347 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_4.html, trying fallback.
+2026-02-12 21:22:38,347 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_5.html
+2026-02-12 21:22:42,859 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_5.html, trying fallback.
+2026-02-12 21:22:42,859 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_6.html
+2026-02-12 21:22:47,726 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_6.html, trying fallback.
+2026-02-12 21:22:47,726 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_23.html
+2026-02-12 21:22:51,175 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/zyyj/djcf/index_23.html, trying fallback.
+2026-02-12 21:22:51,175 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html
+2026-02-12 21:22:53,406 - WARNING - Content selector failed for https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html, trying fallback.
+2026-02-12 21:22:53,407 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html
+2026-02-12 21:22:57,569 - WARNING - Content selector failed for https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html, trying fallback.
+2026-02-12 21:22:57,569 - INFO - Scraping category list: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/
+2026-02-12 21:22:58,263 - INFO - Found 33 potential links on page.
+2026-02-12 21:22:58,264 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/client/index.html
+2026-02-12 21:23:02,177 - WARNING - Content selector failed for http://www.ccdi.gov.cn/client/index.html, trying fallback.
+2026-02-12 21:23:02,177 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html
+2026-02-12 21:23:04,644 - WARNING - Content selector failed for https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html, trying fallback.
+2026-02-12 21:23:04,645 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/specialn/jdbg3/index.html
+2026-02-12 21:23:04,789 - ERROR - Error getting content for http://www.ccdi.gov.cn/specialn/jdbg3/index.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2026-02-12 21:23:04,789 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260212_475200.html
+2026-02-12 21:23:07,681 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260212_475200.html, trying fallback.
+2026-02-12 21:23:07,681 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474907.html
+2026-02-12 21:23:12,312 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474907.html, trying fallback.
+2026-02-12 21:23:12,312 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474908.html
+2026-02-12 21:23:16,524 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474908.html, trying fallback.
+2026-02-12 21:23:16,524 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474909.html
+2026-02-12 21:23:21,108 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474909.html, trying fallback.
+2026-02-12 21:23:21,108 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474910.html
+2026-02-12 21:23:24,316 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260210_474910.html, trying fallback.
+2026-02-12 21:23:24,316 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260210_474829.html
+2026-02-12 21:23:28,858 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260210_474829.html, trying fallback.
+2026-02-12 21:23:28,859 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474715.html
+2026-02-12 21:23:32,469 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474715.html, trying fallback.
+2026-02-12 21:23:32,470 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474716.html
+2026-02-12 21:23:35,830 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474716.html, trying fallback.
+2026-02-12 21:23:35,830 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474664.html
+2026-02-12 21:23:38,202 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474664.html, trying fallback.
+2026-02-12 21:23:38,202 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474665.html
+2026-02-12 21:23:42,279 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474665.html, trying fallback.
+2026-02-12 21:23:42,279 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474628.html
+2026-02-12 21:23:44,650 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474628.html, trying fallback.
+2026-02-12 21:23:44,651 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474622.html
+2026-02-12 21:23:47,749 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474622.html, trying fallback.
+2026-02-12 21:23:47,749 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474601.html
+2026-02-12 21:23:51,215 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474601.html, trying fallback.
+2026-02-12 21:23:51,215 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474530.html
+2026-02-12 21:23:56,142 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474530.html, trying fallback.
+2026-02-12 21:23:56,142 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474529.html
+2026-02-12 21:23:59,772 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474529.html, trying fallback.
+2026-02-12 21:23:59,772 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260208_474439.html
+2026-02-12 21:24:02,722 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260208_474439.html, trying fallback.
+2026-02-12 21:24:02,723 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260208_474438.html
+2026-02-12 21:24:05,462 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260208_474438.html, trying fallback.
+2026-02-12 21:24:05,463 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260207_474389.html
+2026-02-12 21:24:09,424 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260207_474389.html, trying fallback.
+2026-02-12 21:24:09,424 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260207_474390.html
+2026-02-12 21:24:13,947 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/202602/t20260207_474390.html, trying fallback.
+2026-02-12 21:24:13,948 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474279.html
+2026-02-12 21:24:18,545 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474279.html, trying fallback.
+2026-02-12 21:24:18,545 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_1.html
+2026-02-12 21:24:22,746 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_1.html, trying fallback.
+2026-02-12 21:24:22,746 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_2.html
+2026-02-12 21:24:25,454 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_2.html, trying fallback.
+2026-02-12 21:24:25,454 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_3.html
+2026-02-12 21:24:29,360 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_3.html, trying fallback.
+2026-02-12 21:24:29,360 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_4.html
+2026-02-12 21:24:31,999 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_4.html, trying fallback.
+2026-02-12 21:24:31,999 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_5.html
+2026-02-12 21:24:35,748 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_5.html, trying fallback.
+2026-02-12 21:24:35,748 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_6.html
+2026-02-12 21:24:39,133 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_6.html, trying fallback.
+2026-02-12 21:24:39,133 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_49.html
+2026-02-12 21:24:43,274 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/zjsc/index_49.html, trying fallback.
+2026-02-12 21:24:43,275 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html
+2026-02-12 21:24:45,880 - WARNING - Content selector failed for https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html, trying fallback.
+2026-02-12 21:24:45,880 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html
+2026-02-12 21:24:48,381 - WARNING - Content selector failed for https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html, trying fallback.
+2026-02-12 21:24:48,381 - INFO - Scraping category list: https://www.ccdi.gov.cn/scdcn/sggb/djcf/
+2026-02-12 21:24:49,066 - INFO - Found 33 potential links on page.
+2026-02-12 21:24:49,067 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/client/index.html
+2026-02-12 21:24:51,585 - WARNING - Content selector failed for http://www.ccdi.gov.cn/client/index.html, trying fallback.
+2026-02-12 21:24:51,586 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html
+2026-02-12 21:24:54,999 - WARNING - Content selector failed for https://www.ccdi.gov.cn/bqsmn/202004/t20200426_17825.html, trying fallback.
+2026-02-12 21:24:54,999 - INFO - Navigating to detail page: http://www.ccdi.gov.cn/specialn/jdbg3/index.html
+2026-02-12 21:24:55,140 - ERROR - Error getting content for http://www.ccdi.gov.cn/specialn/jdbg3/index.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2026-02-12 21:24:55,140 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/202602/t20260212_475355.html
+2026-02-12 21:24:59,398 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/202602/t20260212_475355.html, trying fallback.
+2026-02-12 21:24:59,398 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260212_475302.html
+2026-02-12 21:25:01,840 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260212_475302.html, trying fallback.
+2026-02-12 21:25:01,841 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475131.html
+2026-02-12 21:25:05,065 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475131.html, trying fallback.
+2026-02-12 21:25:05,065 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475140.html
+2026-02-12 21:25:07,802 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475140.html, trying fallback.
+2026-02-12 21:25:07,802 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475132.html
+2026-02-12 21:25:11,500 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475132.html, trying fallback.
+2026-02-12 21:25:11,500 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475056.html
+2026-02-12 21:25:14,812 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475056.html, trying fallback.
+2026-02-12 21:25:14,812 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475093.html
+2026-02-12 21:25:17,095 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260211_475093.html, trying fallback.
+2026-02-12 21:25:17,095 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260210_474816.html
+2026-02-12 21:25:20,539 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260210_474816.html, trying fallback.
+2026-02-12 21:25:20,539 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474637.html
+2026-02-12 21:25:24,883 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474637.html, trying fallback.
+2026-02-12 21:25:24,883 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474627.html
+2026-02-12 21:25:28,723 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260209_474627.html, trying fallback.
+2026-02-12 21:25:28,723 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474273.html
+2026-02-12 21:25:33,844 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474273.html, trying fallback.
+2026-02-12 21:25:33,844 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474192.html
+2026-02-12 21:25:38,717 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260206_474192.html, trying fallback.
+2026-02-12 21:25:38,717 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473702.html
+2026-02-12 21:25:43,441 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473702.html, trying fallback.
+2026-02-12 21:25:43,441 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473701.html
+2026-02-12 21:25:46,265 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473701.html, trying fallback.
+2026-02-12 21:25:46,265 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473679.html
+2026-02-12 21:25:51,103 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473679.html, trying fallback.
+2026-02-12 21:25:51,104 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473677.html
+2026-02-12 21:25:53,791 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473677.html, trying fallback.
+2026-02-12 21:25:53,791 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473678.html
+2026-02-12 21:25:58,691 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473678.html, trying fallback.
+2026-02-12 21:25:58,692 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473579.html
+2026-02-12 21:26:02,039 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260204_473579.html, trying fallback.
+2026-02-12 21:26:02,039 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260203_473442.html
+2026-02-12 21:26:06,781 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260203_473442.html, trying fallback.
+2026-02-12 21:26:06,781 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473179.html
+2026-02-12 21:26:11,331 - WARNING - Content selector failed for https://www.ccdi.gov.cn/yaowenn/202602/t20260202_473179.html, trying fallback.
+2026-02-12 21:26:11,331 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_1.html
+2026-02-12 21:26:14,352 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_1.html, trying fallback.
+2026-02-12 21:26:14,352 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_2.html
+2026-02-12 21:26:19,449 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_2.html, trying fallback.
+2026-02-12 21:26:19,449 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_3.html
+2026-02-12 21:26:22,775 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_3.html, trying fallback.
+2026-02-12 21:26:22,775 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_4.html
+2026-02-12 21:26:26,499 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_4.html, trying fallback.
+2026-02-12 21:26:26,499 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_5.html
+2026-02-12 21:26:29,793 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_5.html, trying fallback.
+2026-02-12 21:26:29,793 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_6.html
+2026-02-12 21:26:33,900 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_6.html, trying fallback.
+2026-02-12 21:26:33,900 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_49.html
+2026-02-12 21:26:39,022 - WARNING - Content selector failed for https://www.ccdi.gov.cn/scdcn/sggb/djcf/index_49.html, trying fallback.
+2026-02-12 21:26:39,022 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html
+2026-02-12 21:26:44,855 - WARNING - Content selector failed for https://www.ccdi.gov.cn/gywmn/201412/t20141201_17827.html, trying fallback.
+2026-02-12 21:26:44,855 - INFO - Navigating to detail page: https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html
+2026-02-12 21:26:48,153 - WARNING - Content selector failed for https://www.ccdi.gov.cn/wzsmn/201412/t20141201_17826.html, trying fallback.
+2026-02-12 21:26:48,312 - INFO - Browser closed.
