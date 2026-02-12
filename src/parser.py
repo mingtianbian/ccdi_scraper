@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import pandas as pd
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -46,21 +47,42 @@ def extract_detail(html_content, url):
             
             # Extract Source
             # Format often: "来源：中央纪委国家监委网站"
-            source_match = re.search(r"来源：(.*?)(?:\s|$)", text)
-            data["source"] = source_match.group(1).strip() if source_match else "Unknown"
+            # Text might hold: "来源：中央纪委... 发布时间：..."
+            # We want to stop at "发布时间" if present, or first significant whitespace if not.
+            # Updated Regex: Allow whitespace after colon, stop at "发布时间" or end.
+            source_match = re.search(r"来源：\s*(.*?)(?:\s+发布时间|\s{2,}|\s*$)", text)
+            if source_match:
+                data["source"] = source_match.group(1).strip()
             
             # Extract Time
             # Format often: "发布时间：2023-01-01 10:00"
-            time_match = re.search(r"发布时间：(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})", text)
+            # Improved Regex: Allow whitespace after colon
+            time_match = re.search(r"发布时间：\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})", text)
             if not time_match:
+                 # Try finding just the date pattern
                  time_match = re.search(r"(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})", text)
-            data["publish_time"] = time_match.group(1) if time_match else "Unknown"
-            break
+            
+            if time_match:
+                data["publish_time"] = time_match.group(1)
+            
+            # If we found both, break. If we found one, we might keep searching? 
+            # Usually they are in the same block.
+            if "source" in data or "publish_time" in data:
+                break
             
     if "source" not in data:
-        data["source"] = "Unknown"
+        # Fallback: Search entire text if selector failed
+        full_text = soup.get_text(" ", strip=True)
+        source_match = re.search(r"来源：\s*(.*?)(?:\s+发布时间|\s{2,}|\s*$)", full_text)
+        data["source"] = source_match.group(1).strip() if source_match else "Unknown"
+
     if "publish_time" not in data:
-        data["publish_time"] = "Unknown"
+        if "full_text" not in locals():
+            full_text = soup.get_text(" ", strip=True)
+        time_match = re.search(r"发布时间：\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})", full_text)
+        if not time_match:
+             time_match = re.search(r"(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})", full_text)
+        data["publish_time"] = time_match.group(1) if time_match else "Unknown"
 
     # Content
     # usually in <div class="TRS_Editor"> or <div class="daty_con_text">

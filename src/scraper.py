@@ -54,32 +54,77 @@ class CCDIScraper:
 
     async def _handle_block(self, page):
         """
-        Check if redirected to error page. If so, pause until resolved.
+        Check if redirected to error page or blocked. If so, pause until resolved.
+        Checks URL, Title, and Content.
         """
-        # Check standard error URL or generic error indicators
-        if "/error/error.html" in page.url or "security_verify" in page.url:
-            logger.warning(f"Risk control detected at {page.url}. Pausing...")
+        try:
+            # Wait a short moment for any redirects or JS to settle
+            # await page.wait_for_timeout(1000) 
             
-            # Print explicit message to console
-            print(f"\n[!] WARN: Risk control Detected! Redirected to: {page.url}")
-            print(f"[!] The scraper is PAUSED. Please check the browser window.")
-            print(f"[!] Resolve the captcha or change IP, then wait for auto-retry.")
+            # Get current state
+            url = page.url
+            try:
+                title = await page.title()
+            except:
+                title = ""
             
-            while "/error/error.html" in page.url or "security_verify" in page.url:
-                print(f"[!] Paused... Retrying in 30 seconds...")
-                await asyncio.sleep(30)
-                try:
-                    logger.info("Retrying page reload...")
-                    await page.reload(timeout=TIMEOUT)
+            # Simple check first
+            is_blocked = False
+            
+            if "/error/error.html" in url or "security_verify" in url:
+                is_blocked = True
+            elif "系统维护" in title or "403 Forbidden" in title or "Security Verify" in title:
+                is_blocked = True
+            
+            if is_blocked:
+                # Double check content if needed, but URL/Title usually enough
+                pass
+
+            if is_blocked:
+                logger.warning(f"Risk control detected at {url} | Title: {title}. Pausing...")
+                
+                print(f"\n[!] WARN: Risk control Detected!")
+                print(f"[!] URL: {url}")
+                print(f"[!] Title: {title}")
+                print(f"[!] The scraper is PAUSED. Please check the browser window manually.")
+                print(f"[!] Resolve the captcha, or wait for IP ban to lift.")
+                
+                while True:
+                    # Check if resolved
                     try:
-                        await page.wait_for_load_state("domcontentloaded", timeout=10000)
-                    except:
-                        pass
-                except Exception as e:
-                    logger.error(f"Reload failed: {e}")
-            
-            print(f"[!] Block resolved. Resuming...")
-            logger.info("Block resolved. Resuming...")
+                        current_url = page.url
+                        current_title = await page.title()
+                        
+                        # Conditions to continue
+                        still_blocked = False
+                        if "/error/error.html" in current_url or "security_verify" in current_url:
+                            still_blocked = True
+                        elif "系统维护" in current_title or "403 Forbidden" in current_title or "Security Verify" in current_title:
+                            still_blocked = True
+                            
+                        if not still_blocked:
+                            print(f"[!] Block resolved (URL: {current_url}). Resuming...")
+                            break
+                            
+                    except Exception as e:
+                        logger.error(f"Error checking block status: {e}")
+                    
+                    print(f"[!] Paused... Retrying in 30 seconds...")
+                    await asyncio.sleep(30)
+                    
+                    try:
+                        logger.info("Retrying page reload...")
+                        await page.reload(timeout=TIMEOUT)
+                        # Wait for load
+                        try:
+                            await page.wait_for_load_state("domcontentloaded", timeout=10000)
+                        except:
+                            pass
+                    except Exception as e:
+                        logger.error(f"Reload failed: {e}")
+
+        except Exception as e:
+            logger.error(f"Error in _handle_block: {e}")
 
     async def random_sleep(self):
         """Sleep for a random interval to simulate human behavior."""

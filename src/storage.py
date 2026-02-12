@@ -119,6 +119,10 @@ class Storage:
             # Also check for empty content if that indicates a block
             c.execute("DELETE FROM articles WHERE content IS NULL OR content = ''")
             deleted_count += c.rowcount
+
+            # NEW: Check for Unknown source or time (Parser failures)
+            c.execute("DELETE FROM articles WHERE source = 'Unknown' OR publish_time = 'Unknown'")
+            deleted_count += c.rowcount
             
             conn.commit()
             if deleted_count > 0:
