@@ -101,8 +101,6 @@ async def process_subcategory(scraper, storage, category, subcategory, url, prog
         
     return new_articles_count
 
-    return new_articles_count
-
 async def periodic_export(storage, filepath):
     """
     Background task to periodically export data to Excel.
@@ -166,7 +164,7 @@ async def main():
     # Final Export (Update the same file)
     storage.export_to_excel(session_filepath)
     
-    console.print(f"[bold green][SUCCESS] All done! Full export saved to {filepath}[/bold green]")
+    console.print(f"[bold green][SUCCESS] All done! Full export saved to {session_filepath}[/bold green]")
     
     if COMPLETION_WAIT_TIME > 0:
         console.print(f"[yellow]Waiting {COMPLETION_WAIT_TIME} seconds before closing...[/yellow]")
