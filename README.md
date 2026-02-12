@@ -58,7 +58,7 @@ ccdi_scraper/
 ├── README.md               # 说明文档
 ├── data/                   # 数据输出目录
 │   ├── ccdi.db             # 过程数据库
-│   └── ccdi_export_...xlsx # 最终 Excel 结果
+│   └── ccdi_data_...xlsx # 最终 Excel 结果
 └── src/
     ├── config.py           # 配置文件（URL、参数）
     ├── scraper.py          # 爬虫核心（Playwright 逻辑）

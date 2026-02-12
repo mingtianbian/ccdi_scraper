@@ -24,6 +24,8 @@ def show_status_table(checks):
         table.add_row(component, status_str)
     
     console.print(table)
+    console.print("[link=https://github.com/mingtianbian/ccdi_scraper]Project: https://github.com/mingtianbian/ccdi_scraper[/link]", style="bold blue")
+    console.print()
 
 async def check_environment():
     checks = {
@@ -99,17 +101,15 @@ async def process_subcategory(scraper, storage, category, subcategory, url, prog
         
     return new_articles_count
 
-async def periodic_export(storage):
+    return new_articles_count
+
+async def periodic_export(storage, filepath):
     """
     Background task to periodically export data to Excel.
     """
     while True:
         try:
             await asyncio.sleep(EXPORT_INTERVAL)
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = OUTPUT_FILENAME_FORMAT.format(timestamp=timestamp)
-            filepath = os.path.join(OUTPUT_DIR, filename)
-            
             console.print(f"[grey50]Auto-exporting data to {filepath}...[/grey50]")
             storage.export_to_excel(filepath)
         except asyncio.CancelledError:
@@ -129,8 +129,13 @@ async def main():
     scraper = CCDIScraper()
     await scraper.start()
     
+    # Generate Session Filename ONCE
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = OUTPUT_FILENAME_FORMAT.format(timestamp=timestamp)
+    session_filepath = os.path.join(OUTPUT_DIR, filename)
+    
     # Start background export task
-    export_task = asyncio.create_task(periodic_export(storage))
+    export_task = asyncio.create_task(periodic_export(storage, session_filepath))
     
     try:
         with create_progress() as progress:
@@ -158,11 +163,8 @@ async def main():
             
         await scraper.stops()
         
-    # Final Export
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = OUTPUT_FILENAME_FORMAT.format(timestamp=timestamp)
-    filepath = os.path.join(OUTPUT_DIR, filename)
-    storage.export_to_excel(filepath)
+    # Final Export (Update the same file)
+    storage.export_to_excel(session_filepath)
     
     console.print(f"[bold green][SUCCESS] All done! Full export saved to {filepath}[/bold green]")
     

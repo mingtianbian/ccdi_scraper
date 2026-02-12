@@ -160,6 +160,7 @@ class CCDIScraper:
                 await self._handle_block(page)
             except Exception as e:
                 logger.error(f"Goto failed: {e}")
+                raise e # Propagate error
 
             try:
                await page.wait_for_load_state("networkidle", timeout=10000)
@@ -196,6 +197,17 @@ class CCDIScraper:
 
             # Process Page 1
             links = await extract_links(page)
+            
+            # CRITICAL: If no links found on first page, implying parsing error or block
+            if len(links) == 0:
+                # Check if it was a valid page (title check) or if we were blocked
+                title = await page.title()
+                if "403" in title or "Error" in title or "Security" in title:
+                     raise Exception("Page access blocked/error")
+                # Otherwise, maybe just empty category? But unlikely.
+                # Let's assume it IS an error if 0 links found on page 1 for these categories.
+                raise Exception("No links found on Page 1 (Parse Error/Layout Change)")
+            
             # logger.info(f"Page 1: Found {len(links)} links.")
             for link in links:
                 if storage and storage.is_scraped(link['href']):
